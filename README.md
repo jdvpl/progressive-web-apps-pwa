@@ -26,3 +26,5 @@ https://www.udemy.com/course/react-desde-cero-pwa/learn/lecture/25367868#questio
 
 ----
 inspeccionar elemento consola y escribir `navigator` y buscar `serviceWorker`
+
+### cachear todas las rutas en el archivo de serviceWorker
