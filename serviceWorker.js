@@ -9,7 +9,7 @@ const CACHE_ELEMENTS=[
     "./registro.js",
 ]
 
-const CACHE_NAME="v1_cache_contador_react"
+const CACHE_NAME="v3_cache_contador_react"
 
 // seflt es una constante this
 // primer parametro el ciclo de vida instalarse para cachear las rutas
@@ -21,5 +21,20 @@ self.addEventListener("install", (e)=>{
                 self.skipWaiting()
             }).catch(console.log)
         })
+    )
+})
+// activar el service worker
+// keys todas las claves  de caches si hay mas de una lista
+self.addEventListener("activate", (e)=>{ 
+    const cacheWhiteList=[CACHE_NAME];
+    e.waitUntil(
+            caches.keys().then(cachesNames =>{
+                // .all resuelve varias promesas al mismmo tiempo
+                return Promise.all(cachesNames.map(cachesName => {
+                    // indeof si contiene el nombre del cache
+                    // elimina el primer cache
+                   return cacheWhiteList.indexOf(cachesName) === -1 && caches.delete(cachesName)
+                }))
+            }).then( () => self.clients.claim())
     )
 })
