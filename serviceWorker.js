@@ -40,13 +40,13 @@ self.addEventListener("activate", (e)=>{
 })
 // fetch disparar las nuevas versiones cacheadas
 self.addEventListener("fetch", (e)=>{ 
-    e.respondWith( () =>{
+    e.respondWith( 
         // saber cual coincide
         caches.match(e.request).then( res => {
             if(res){
                 return res;
             }
             return fetch(e.request);
-        });
-    });
+        })
+    );
 })
