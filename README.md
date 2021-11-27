@@ -28,3 +28,8 @@ https://www.udemy.com/course/react-desde-cero-pwa/learn/lecture/25367868#questio
 inspeccionar elemento consola y escribir `navigator` y buscar `serviceWorker`
 
 ### cachear todas las rutas en el archivo de serviceWorker
+
+### generar los iconos automaticamente
+* `npx pwa-asset-generator favicon.png ./assets -m .\manifest.json -i .\index.html`
+* `https://www.npmjs.com/package/pwa-asset-generator` documentacion
+* se peude colocar una imagen que esta en internet un svg colocando la ruta de la web
